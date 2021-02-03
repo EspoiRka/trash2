@@ -14,9 +14,8 @@ namespace App1
 
             Console.WriteLine("Калькулятор \n");
 
-        Start:
             int menu;
-            
+
 
             Console.WriteLine("1. Сложение");
             Console.WriteLine("2. Вычитание");
@@ -102,18 +101,19 @@ namespace App1
                 default:
                     Console.WriteLine("Давайте сначала? Вы нажали не туда. \n");
                     Thread.Sleep(1000);
-                    goto Start;
+                    break;
             }
             Console.ReadKey();
         }
 
         private static void GetTwoDigit(string operation, ref double q, ref double w)
         {
-                Console.WriteLine(operation);
-                Console.Write("Введите число: ");
-                q = Convert.ToDouble(Console.ReadLine());
-                Console.Write("Введите число: ");
-                w = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine(operation);
+            Console.Write("Введите число: ");
+            q = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Введите число: ");
+            w = Convert.ToDouble(Console.ReadLine());
         }
     }
+    
 }
