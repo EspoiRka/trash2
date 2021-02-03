@@ -16,14 +16,14 @@ namespace App1
 
         Start:
             int menu;
-
+            е
 
             Console.WriteLine("1. Сложение");
             Console.WriteLine("2. Вычитание");
             Console.WriteLine("3. Умножение");
             Console.WriteLine("4. Деление");
             Console.WriteLine("5. Выход\n");
-            Console.Write("Ввод: ");
+            Console.Write("Выбор: ");
 
 
 
