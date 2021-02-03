@@ -5,3 +5,10 @@ C:\Users\КрисюкП\source\repos\App1\obj\Debug\App1.csprojAssemblyReference
 C:\Users\КрисюкП\source\repos\App1\obj\Debug\App1.csproj.CoreCompileInputs.cache
 C:\Users\КрисюкП\source\repos\App1\obj\Debug\App1.exe
 C:\Users\КрисюкП\source\repos\App1\obj\Debug\App1.pdb
+C:\Users\LorD\source\repos\Урок\trash2\bin\Debug\App1.exe.config
+C:\Users\LorD\source\repos\Урок\trash2\bin\Debug\App1.exe
+C:\Users\LorD\source\repos\Урок\trash2\bin\Debug\App1.pdb
+C:\Users\LorD\source\repos\Урок\trash2\obj\Debug\App1.csprojAssemblyReference.cache
+C:\Users\LorD\source\repos\Урок\trash2\obj\Debug\App1.csproj.CoreCompileInputs.cache
+C:\Users\LorD\source\repos\Урок\trash2\obj\Debug\App1.exe
+C:\Users\LorD\source\repos\Урок\trash2\obj\Debug\App1.pdb

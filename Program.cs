@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace App1
 {
@@ -10,78 +11,88 @@ namespace App1
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("Калькулятор \n");
 
-            double a, b, c, d;
+        Start:
             int menu;
 
-            
 
             Console.WriteLine("1. Сложение");
             Console.WriteLine("2. Вычитание");
             Console.WriteLine("3. Умножение");
             Console.WriteLine("4. Деление");
             Console.WriteLine("5. Выход\n");
-            Console.WriteLine("Ввод: ");
+            Console.Write("Ввод: ");
+
+
+
 
             String s = Console.ReadLine();
             menu = s.Length > 0 ? s[0] : ' ';
 
             Console.Clear();
-            int valid = 0;
+
+            double q = 0, w = 0;
+
+
             switch (menu)
             {
-                
-                case '1':
-                    bool Y, N;
-                    int i = 0;
-                    while (i < 1)
-                    {
-                        double q, w;
-                        Console.WriteLine("Сложение:");
-                        Console.Write("Введите число: ");
-                        q = Convert.ToDouble(Console.ReadLine());
-                        Console.Write("Введите число: ");
-                        w = Convert.ToDouble(Console.ReadLine());
-                        Console.Write("Ответ: " + (q + w));
-                        i++;
-                    }
-                    
 
-                /* Console.WriteLine("Хотите еще посчитать? Y/N");
-                 Y = Convert.ToBoolean(Console.ReadLine());
-                 if (Y | N)
-                     Console.WriteLine()*/
-                break;
+                case '1':
+
+                    string result;
+
+                    do
+                    {
+                        Console.Clear();
+                        GetTwoDigit("Сложение", ref q, ref w);
+                        Console.WriteLine("Ответ: " + (q + w));
+
+                        Console.WriteLine("Хотите еще посчитать? Y/N");
+                        result = Console.ReadLine().Trim();
+
+                    } while (result.Length > 0 && result.ToLowerInvariant()[0] == 'y');
+                    break;
 
                 case '2':
-                    double e, r;
-                    Console.WriteLine("Вычитание");
-                    Console.Write("Введите число: ");
-                    e = Convert.ToDouble(Console.ReadLine());
-                    Console.Write("Введите число: ");
-                    r = Convert.ToDouble(Console.ReadLine());
-                    Console.Write($"Ответ: " + (e - r));
+
+                    do
+                    {
+                        Console.Clear();
+                        GetTwoDigit("Вычитание", ref q, ref w);
+                        Console.WriteLine("Ответ: " + (q - w));
+
+                        Console.WriteLine("Хотите еще посчитать? Y/N");
+                        result = Console.ReadLine().Trim();
+
+                    } while (result.Length > 0 && result.ToLowerInvariant()[0] == 'y');
                     break;
 
                 case '3':
-                    double t, y;
-                    Console.WriteLine("Умножение");
-                    Console.Write("Введите число: ");
-                    t = Convert.ToDouble(Console.ReadLine());
-                    Console.Write("Введите число: ");
-                    y = Convert.ToDouble(Console.ReadLine());
-                    Console.Write($"Ответ: " + (t * y));
+                    do
+                    {
+                        Console.Clear();
+                        GetTwoDigit("Умножение", ref q, ref w);
+                        Console.WriteLine("Ответ: " + (q * w));
+
+                        Console.WriteLine("Хотите еще посчитать? Y/N");
+                        result = Console.ReadLine().Trim();
+
+                    } while (result.Length > 0 && result.ToLowerInvariant()[0] == 'y');
                     break;
 
                 case '4':
-                    double u,g;
-                    Console.WriteLine("Деление");
-                    Console.Write("Введите число: ");
-                    u = Convert.ToDouble(Console.ReadLine());
-                    Console.Write("Введите число: ");
-                    g = Convert.ToDouble(Console.ReadLine());
-                    Console.Write($"Ответ: " + (u / g));
+                    do
+                    {
+                        Console.Clear();
+                        GetTwoDigit("Деление", ref q, ref w);
+                        Console.WriteLine("Ответ: " + (q / w));
+
+                        Console.WriteLine("Хотите еще посчитать? Y/N");
+                        result = Console.ReadLine().Trim();
+
+                    } while (result.Length > 0 && result.ToLowerInvariant()[0] == 'y');
                     break;
 
                 case '5':
@@ -89,17 +100,20 @@ namespace App1
                     break;
 
                 default:
-                    Console.WriteLine("Давайте сначала? Вы нажали не туда");
-                    return 0;
-                    break;
+                    Console.WriteLine("Давайте сначала? Вы нажали не туда. \n");
+                    Thread.Sleep(1000);
+                    goto Start;
             }
-
-
-           /* while (true)
-            {
-                Console.WriteLine("")
-            }*/
             Console.ReadKey();
+        }
+
+        private static void GetTwoDigit(string operation, ref double q, ref double w)
+        {
+                Console.WriteLine(operation);
+                Console.Write("Введите число: ");
+                q = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Введите число: ");
+                w = Convert.ToDouble(Console.ReadLine());
         }
     }
 }
