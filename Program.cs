@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace App1
+namespace Calculator
 {
     class Program
     {
@@ -32,7 +32,7 @@ namespace App1
 
             Console.Clear();
 
-            double q = 0, w = 0;
+            double FirstNum = 0, SecNum = 0;
 
 
             switch (menu)
@@ -45,8 +45,8 @@ namespace App1
                     do
                     {
                         Console.Clear();
-                        GetTwoDigit("Сложение", ref q, ref w);
-                        Console.WriteLine("Ответ: " + (q + w));
+                        GetTwoDigit("Сложение\n", ref FirstNum, ref SecNum);
+                        Console.WriteLine("Ответ: " + (FirstNum + SecNum));
 
                         Console.WriteLine("Хотите еще посчитать? Y/N");
                         result = Console.ReadLine().Trim();
@@ -59,8 +59,8 @@ namespace App1
                     do
                     {
                         Console.Clear();
-                        GetTwoDigit("Вычитание", ref q, ref w);
-                        Console.WriteLine("Ответ: " + (q - w));
+                        GetTwoDigit("Вычитание\n", ref FirstNum, ref SecNum);
+                        Console.WriteLine("Ответ: " + (FirstNum - SecNum));
 
                         Console.WriteLine("Хотите еще посчитать? Y/N");
                         result = Console.ReadLine().Trim();
@@ -72,8 +72,8 @@ namespace App1
                     do
                     {
                         Console.Clear();
-                        GetTwoDigit("Умножение", ref q, ref w);
-                        Console.WriteLine("Ответ: " + (q * w));
+                        GetTwoDigit("Умножение\n", ref FirstNum, ref SecNum);
+                        Console.WriteLine("Ответ: " + (FirstNum * SecNum));
 
                         Console.WriteLine("Хотите еще посчитать? Y/N");
                         result = Console.ReadLine().Trim();
@@ -85,8 +85,8 @@ namespace App1
                     do
                     {
                         Console.Clear();
-                        GetTwoDigit("Деление", ref q, ref w);
-                        Console.WriteLine("Ответ: " + (q / w));
+                        GetTwoDigit("Деление\n", ref FirstNum, ref SecNum);
+                        Console.WriteLine("Ответ: " + (FirstNum / SecNum));
 
                         Console.WriteLine("Хотите еще посчитать? Y/N");
                         result = Console.ReadLine().Trim();
@@ -105,14 +105,24 @@ namespace App1
             }
             Console.ReadKey();
         }
-
-        private static void GetTwoDigit(string operation, ref double q, ref double w)
+        
+        private static void GetTwoDigit(string operation, ref double firstNum, ref double SecNum)
         {
             Console.WriteLine(operation);
+            
             Console.Write("Введите число: ");
-            q = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите число: ");
-            w = Convert.ToDouble(Console.ReadLine());
+            while (!double.TryParse(Console.ReadLine(), out firstNum))
+            {
+                Console.WriteLine("Это не число");
+                Console.Write("Вводи еще раз: ");
+            }
+            
+            Console.Write("\nВведите число(2): ");
+            while (!double.TryParse(Console.ReadLine(), out SecNum))
+            {
+                Console.WriteLine("Ошибка! Это не число");
+                Console.Write("Введите еще раз: ");
+            }
         }
     }
     
