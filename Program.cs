@@ -11,17 +11,17 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-
+            
             Console.WriteLine("Калькулятор \n");
 
             int menu;
 
+            string[] list = { "1. Сложение", "2. Вычитание", "3. Умножение", "4. Деление", "5. Выход\n" };
 
-            Console.WriteLine("1. Сложение");
-            Console.WriteLine("2. Вычитание");
-            Console.WriteLine("3. Умножение");
-            Console.WriteLine("4. Деление");
-            Console.WriteLine("5. Выход\n");
+            for (int i = 0; i < list.Length; i++)
+            {
+                Console.WriteLine(list[i]);
+            }
             Console.Write("Выбор: ");
 
 
@@ -34,7 +34,7 @@ namespace Calculator
 
             double FirstNum = 0, SecNum = 0;
 
-
+            
             switch (menu)
             {
 
@@ -113,16 +113,19 @@ namespace Calculator
             Console.Write("Введите число: ");
             while (!double.TryParse(Console.ReadLine(), out firstNum))
             {
-                Console.WriteLine("Это не число");
-                Console.Write("Вводи еще раз: ");
+                Error();
             }
             
             Console.Write("\nВведите число(2): ");
             while (!double.TryParse(Console.ReadLine(), out SecNum))
             {
-                Console.WriteLine("Ошибка! Это не число");
-                Console.Write("Введите еще раз: ");
+                Error();
             }
+        }
+        public static void Error()
+        {
+            Console.WriteLine("\nОшибка! Это не число\n");
+            Console.Write("Введите еще раз: ");
         }
     }
     
