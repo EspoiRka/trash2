@@ -14,27 +14,20 @@ namespace Calculator
             
             Console.WriteLine("Калькулятор \n");
 
-            int menu;
-
             string[] list = { "1. Сложение", "2. Вычитание", "3. Умножение", "4. Деление", "5. Выход\n" };
-
             for (int i = 0; i < list.Length; i++)
             {
                 Console.WriteLine(list[i]);
             }
             Console.Write("Выбор: ");
 
-
-
-
+            int menu;
             String s = Console.ReadLine();
             menu = s.Length > 0 ? s[0] : ' ';
 
             Console.Clear();
-
             double FirstNum = 0, SecNum = 0;
 
-            
             switch (menu)
             {
 
@@ -44,13 +37,12 @@ namespace Calculator
 
                     do
                     {
-                        Console.Clear();
                         GetTwoDigit("Сложение\n", ref FirstNum, ref SecNum);
                         Console.WriteLine("Ответ: " + (FirstNum + SecNum));
 
                         Console.WriteLine("Хотите еще посчитать? Y/N");
                         result = Console.ReadLine().Trim();
-
+                        ReturnToMenu();
                     } while (result.Length > 0 && result.ToLowerInvariant()[0] == 'y');
                     break;
 
@@ -58,7 +50,6 @@ namespace Calculator
 
                     do
                     {
-                        Console.Clear();
                         GetTwoDigit("Вычитание\n", ref FirstNum, ref SecNum);
                         Console.WriteLine("Ответ: " + (FirstNum - SecNum));
 
@@ -71,7 +62,6 @@ namespace Calculator
                 case '3':
                     do
                     {
-                        Console.Clear();
                         GetTwoDigit("Умножение\n", ref FirstNum, ref SecNum);
                         Console.WriteLine("Ответ: " + (FirstNum * SecNum));
 
@@ -84,7 +74,6 @@ namespace Calculator
                 case '4':
                     do
                     {
-                        Console.Clear();
                         GetTwoDigit("Деление\n", ref FirstNum, ref SecNum);
                         Console.WriteLine("Ответ: " + (FirstNum / SecNum));
 
@@ -108,6 +97,7 @@ namespace Calculator
         
         private static void GetTwoDigit(string operation, ref double firstNum, ref double SecNum)
         {
+            Console.Clear();
             Console.WriteLine(operation);
             
             Console.Write("Введите число: ");
@@ -126,6 +116,14 @@ namespace Calculator
         {
             Console.WriteLine("\nОшибка! Это не число\n");
             Console.Write("Введите еще раз: ");
+        }
+        public static void ReturnToMenu ()
+        {
+            string result;
+            do
+            {
+
+            } while (result.Length > 0 && result.ToLowerInvariant()[0] == 'n');
         }
     }
     
